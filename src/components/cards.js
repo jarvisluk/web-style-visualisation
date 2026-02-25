@@ -19,9 +19,7 @@ export function renderCards(container) {
               <h3 class="card-title">${card.title}</h3>
               <p class="card-text">${card.text}</p>
               <div class="card-footer" style="padding-top: var(--spacing); border-top: 1px solid var(--color-border); margin-top: auto;">
-                <button class="btn btn-ghost btn-sm" style="display:inline-flex; align-items:center; gap:6px; padding-left:0; padding-right:0;">
-                  ${t("cards.learn")} <span style="font-size:14px;">→</span>
-                </button>
+                <button class="btn btn-ghost btn-sm" style="display:inline-flex; align-items:center; gap:6px; padding:0;">${t("cards.learn")} <span style="font-size:14px;">→</span></button>
               </div>
             </div>
           </div>

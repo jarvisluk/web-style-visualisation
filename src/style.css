@@ -519,6 +519,9 @@ body.tuning-open #app {
   box-shadow: var(--shadow-x) var(--shadow-y) var(--shadow-blur) var(--shadow-spread) var(--shadow-color);
   overflow: hidden;
   backdrop-filter: blur(var(--backdrop-blur));
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .card-image {
@@ -533,6 +536,9 @@ body.tuning-open #app {
 
 .card-body {
   padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .card-title {
