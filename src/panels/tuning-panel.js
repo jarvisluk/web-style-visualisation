@@ -1,45 +1,50 @@
 import { setVariable, resetToStyle, getCurrentStyle, getCurrentVariables, onChange } from "../utils/css-var-manager.js";
+import { t, onLangChange } from "../utils/i18n.js";
 
-const COMMON_TUNING = [
-  { section: "🎨 Colors", controls: [
-    { variable: "--color-primary", label: "Primary", type: "color" },
-    { variable: "--color-bg", label: "Background", type: "color" },
-    { variable: "--color-surface", label: "Surface", type: "color" },
-    { variable: "--color-text", label: "Text", type: "color" },
-    { variable: "--color-accent", label: "Accent", type: "color" },
-  ]},
-  { section: "📐 Shape", controls: [
-    { variable: "--border-radius", label: "Border Radius", type: "range", min: 0, max: 32, step: 1, unit: "px" },
-    { variable: "--border-width", label: "Border Width", type: "range", min: 0, max: 6, step: 1, unit: "px" },
-    { variable: "--border-color", label: "Border Color", type: "color" },
-  ]},
-  { section: "🌑 Shadow", controls: [
-    { variable: "--shadow-x", label: "Offset X", type: "range", min: -20, max: 20, step: 1, unit: "px" },
-    { variable: "--shadow-y", label: "Offset Y", type: "range", min: -20, max: 20, step: 1, unit: "px" },
-    { variable: "--shadow-blur", label: "Blur", type: "range", min: 0, max: 40, step: 1, unit: "px" },
-    { variable: "--shadow-color", label: "Shadow Color", type: "color" },
-  ]},
-  { section: "🔤 Typography", controls: [
-    { variable: "--font-family", label: "Font Family", type: "select", options: [
-      "'Inter', sans-serif",
-      "'Roboto', sans-serif",
-      "'Courier Prime', monospace",
-      "'Press Start 2P', monospace",
-      "system-ui, sans-serif",
+function getCommonTuning() {
+  return [
+    { section: t("tuning.colors"), controls: [
+      { variable: "--color-primary", label: t("tuning.primary"), type: "color" },
+      { variable: "--color-bg", label: t("tuning.background"), type: "color" },
+      { variable: "--color-surface", label: t("tuning.surface"), type: "color" },
+      { variable: "--color-text", label: t("tuning.text"), type: "color" },
+      { variable: "--color-accent", label: t("tuning.accent"), type: "color" },
     ]},
-    { variable: "--font-weight", label: "Font Weight", type: "range", min: 100, max: 900, step: 100, unit: "" },
-  ]},
-  { section: "📏 Spacing", controls: [
-    { variable: "--spacing", label: "Base Spacing", type: "range", min: 4, max: 32, step: 2, unit: "px" },
-  ]},
-];
+    { section: t("tuning.shape"), controls: [
+      { variable: "--border-radius", label: t("tuning.borderRadius"), type: "range", min: 0, max: 32, step: 1, unit: "px" },
+      { variable: "--border-width", label: t("tuning.borderWidth"), type: "range", min: 0, max: 6, step: 1, unit: "px" },
+      { variable: "--border-color", label: t("tuning.borderColor"), type: "color" },
+    ]},
+    { section: t("tuning.shadow"), controls: [
+      { variable: "--shadow-x", label: t("tuning.offsetX"), type: "range", min: -20, max: 20, step: 1, unit: "px" },
+      { variable: "--shadow-y", label: t("tuning.offsetY"), type: "range", min: -20, max: 20, step: 1, unit: "px" },
+      { variable: "--shadow-blur", label: t("tuning.blur"), type: "range", min: 0, max: 40, step: 1, unit: "px" },
+      { variable: "--shadow-color", label: t("tuning.shadowColor"), type: "color" },
+    ]},
+    { section: t("tuning.typography"), controls: [
+      { variable: "--font-family", label: t("tuning.fontFamily"), type: "select", options: [
+        "'Inter', sans-serif",
+        "'Roboto', sans-serif",
+        "'Courier Prime', monospace",
+        "'Press Start 2P', monospace",
+        "system-ui, sans-serif",
+      ]},
+      { variable: "--font-weight", label: t("tuning.fontWeight"), type: "range", min: 100, max: 900, step: 100, unit: "" },
+    ]},
+    { section: t("tuning.spacing"), controls: [
+      { variable: "--spacing", label: t("tuning.baseSpacing"), type: "range", min: 4, max: 32, step: 2, unit: "px" },
+    ]},
+  ];
+}
 
 let panelContainer = null;
 
 export function renderTuningPanel(container) {
   panelContainer = container;
-  buildPanel();
-  onChange(() => buildPanel());
+  const render = () => buildPanel();
+  render();
+  onChange(render);
+  onLangChange(render);
 }
 
 function buildPanel() {
@@ -64,21 +69,22 @@ function buildPanel() {
     document.body.classList.remove("tuning-open");
   });
 
-  // Common sections
-  COMMON_TUNING.forEach((section) => {
+// Common sections
+  getCommonTuning().forEach((section) => {
     renderSection(panelContainer, section.section, section.controls, vars);
   });
 
   // Special tuning for current style
   if (style && style.specialTuning && style.specialTuning.length > 0) {
-    renderSection(panelContainer, `✨ ${style.name} Special`, style.specialTuning, vars);
+    const specialTitle = t("tuning.special").replace("✨ Special", `✨ ${style.name} Special`).replace("✨ 专属特色", `✨ ${style.nameZh || style.name} 专属特色`);
+    renderSection(panelContainer, specialTitle, style.specialTuning, vars);
   }
 
   // Actions
   const actions = document.createElement("div");
   actions.className = "tuning-actions";
   actions.innerHTML = `
-    <button class="btn btn-ghost btn-sm" id="tuning-reset-btn" style="flex:1">Reset</button>
+    <button class="btn btn-ghost btn-sm" id="tuning-reset-btn" style="flex:1">${t("tuning.reset")}</button>
   `;
   panelContainer.appendChild(actions);
 

@@ -1,6 +1,6 @@
 import { getCurrentStyle } from "../utils/css-var-manager.js";
 import { onChange } from "../utils/css-var-manager.js";
-import { getStyleName, getStyleDesc, onLangChange } from "../utils/i18n.js";
+import { getStyleName, getStyleDesc, onLangChange, t } from "../utils/i18n.js";
 
 export function renderHero(container) {
   const render = () => updateHero(container);
@@ -19,8 +19,8 @@ function updateHero(container) {
       <h1 class="hero-title">${name}</h1>
       <p class="hero-subtitle">${desc}</p>
       <div class="hero-actions">
-        <button class="btn btn-primary btn-lg">Get Started</button>
-        <button class="btn btn-secondary btn-lg">Learn More</button>
+        <button class="btn btn-primary btn-lg">${t("hero.start")}</button>
+        <button class="btn btn-secondary btn-lg">${t("hero.learn")}</button>
       </div>
     </div>
   `;
