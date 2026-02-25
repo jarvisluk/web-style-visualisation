@@ -147,7 +147,6 @@ body.tuning-open #app {
   padding: var(--spacing-lg) var(--spacing-xl);
   background: var(--color-bg);
   border-bottom: var(--border-width) solid var(--border-color);
-  overflow-x: auto;
 }
 
 .style-selector-title {
@@ -163,6 +162,7 @@ body.tuning-open #app {
   display: flex;
   gap: var(--spacing);
   padding-bottom: var(--spacing-sm);
+  overflow-x: auto;
 }
 
 .style-card {
