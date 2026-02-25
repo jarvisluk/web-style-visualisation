@@ -1,0 +1,58 @@
+{
+  "id": "brutalism",
+  "name": "Brutalism",
+  "nameZh": "粗犷主义",
+  "category": "modern",
+  "description": "Raw, bold, high contrast with hard shadows and thick borders",
+  "descriptionZh": "粗边框、硬阴影、强对比、反美学",
+  "author": "core",
+  "references": ["https://brutalistwebsites.com/"],
+  "variables": {
+    "--color-primary": "#ff5722",
+    "--color-primary-hover": "#e64a19",
+    "--color-bg": "#ffffff",
+    "--color-surface": "#ffffff",
+    "--color-text": "#000000",
+    "--color-text-secondary": "#333333",
+    "--color-accent": "#00e676",
+    "--color-border": "#000000",
+    "--border-radius": "0px",
+    "--border-width": "3px",
+    "--border-color": "#000000",
+    "--shadow-x": "6px",
+    "--shadow-y": "6px",
+    "--shadow-blur": "0px",
+    "--shadow-spread": "0px",
+    "--shadow-color": "#000000",
+    "--font-family": "'Courier Prime', monospace",
+    "--font-weight": "400",
+    "--font-weight-bold": "700",
+    "--backdrop-blur": "0px",
+    "--bg-opacity": "1"
+  },
+  "specialTuning": [
+    {
+      "variable": "--shadow-x",
+      "label": "硬阴影偏移 X",
+      "type": "range",
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "variable": "--shadow-y",
+      "label": "硬阴影偏移 Y",
+      "type": "range",
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "unit": "px"
+    }
+  ],
+  "keyProperties": [
+    { "property": "border: 3px solid #000", "explanation": "粗边框是粗犷主义的视觉标识" },
+    { "property": "box-shadow: hard offset", "explanation": "硬阴影（blur=0）强化层次感" },
+    { "property": "font-family: monospace", "explanation": "等宽字体增加原始感" }
+  ]
+}

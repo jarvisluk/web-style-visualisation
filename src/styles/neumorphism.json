@@ -1,0 +1,48 @@
+{
+  "id": "neumorphism",
+  "name": "Neumorphism",
+  "nameZh": "新拟态",
+  "category": "modern",
+  "description": "Soft UI with extruded and inset elements using dual-tone shadows",
+  "descriptionZh": "同色系双阴影，元素像从背景凸起或凹陷",
+  "author": "core",
+  "references": ["https://neumorphism.io/"],
+  "variables": {
+    "--color-primary": "#6c63ff",
+    "--color-primary-hover": "#5a52e0",
+    "--color-bg": "#e0e0e0",
+    "--color-surface": "#e0e0e0",
+    "--color-text": "#333333",
+    "--color-text-secondary": "#666666",
+    "--color-accent": "#ff6b6b",
+    "--color-border": "transparent",
+    "--border-radius": "20px",
+    "--border-width": "0px",
+    "--border-color": "transparent",
+    "--shadow-x": "8px",
+    "--shadow-y": "8px",
+    "--shadow-blur": "16px",
+    "--shadow-spread": "0px",
+    "--shadow-color": "#bebebe",
+    "--font-family": "'Inter', sans-serif",
+    "--font-weight": "400",
+    "--font-weight-bold": "700",
+    "--backdrop-blur": "0px",
+    "--bg-opacity": "1"
+  },
+  "specialTuning": [
+    {
+      "variable": "--shadow-blur",
+      "label": "阴影模糊",
+      "type": "range",
+      "min": 4,
+      "max": 40,
+      "step": 1,
+      "unit": "px"
+    }
+  ],
+  "keyProperties": [
+    { "property": "box-shadow (dual)", "explanation": "亮面 + 暗面双阴影是新拟态的核心" },
+    { "property": "background = page bg", "explanation": "元素与背景同色才有凸起效果" }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["id", "name", "nameZh", "category", "description", "descriptionZh", "author", "variables", "specialTuning", "keyProperties"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "name": { "type": "string" },
+    "nameZh": { "type": "string" },
+    "category": { "type": "string", "enum": ["classic", "modern", "theme"] },
+    "description": { "type": "string" },
+    "descriptionZh": { "type": "string" },
+    "author": { "type": "string" },
+    "references": { "type": "array", "items": { "type": "string" } },
+    "variables": {
+      "type": "object",
+      "required": [
+        "--color-primary", "--color-bg", "--color-surface",
+        "--color-text", "--border-radius", "--border-width",
+        "--shadow-blur", "--font-family", "--font-weight"
+      ],
+      "additionalProperties": { "type": "string" }
+    },
+    "specialTuning": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["variable", "label", "type"],
+        "properties": {
+          "variable": { "type": "string" },
+          "label": { "type": "string" },
+          "type": { "type": "string", "enum": ["range", "color", "select"] },
+          "min": { "type": "number" },
+          "max": { "type": "number" },
+          "step": { "type": "number" },
+          "unit": { "type": "string" },
+          "options": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "keyProperties": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["property", "explanation"],
+        "properties": {
+          "property": { "type": "string" },
+          "explanation": { "type": "string" }
+        }
+      }
+    }
+  }
+}

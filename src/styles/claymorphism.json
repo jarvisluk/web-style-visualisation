@@ -1,0 +1,49 @@
+{
+  "id": "claymorphism",
+  "name": "Claymorphism",
+  "nameZh": "黏土态",
+  "category": "modern",
+  "description": "Soft 3D clay-like elements with rounded shapes and inner shadows",
+  "descriptionZh": "圆润柔和的 3D 黏土质感，内外双阴影",
+  "author": "core",
+  "references": ["https://hype4.academy/tools/claymorphism-generator"],
+  "variables": {
+    "--color-primary": "#f97316",
+    "--color-primary-hover": "#ea580c",
+    "--color-bg": "#fef3c7",
+    "--color-surface": "#fde68a",
+    "--color-text": "#78350f",
+    "--color-text-secondary": "#92400e",
+    "--color-accent": "#ef4444",
+    "--color-border": "transparent",
+    "--border-radius": "24px",
+    "--border-width": "0px",
+    "--border-color": "transparent",
+    "--shadow-x": "8px",
+    "--shadow-y": "8px",
+    "--shadow-blur": "16px",
+    "--shadow-spread": "0px",
+    "--shadow-color": "rgba(0, 0, 0, 0.15)",
+    "--font-family": "'Inter', sans-serif",
+    "--font-weight": "500",
+    "--font-weight-bold": "700",
+    "--backdrop-blur": "0px",
+    "--bg-opacity": "1"
+  },
+  "specialTuning": [
+    {
+      "variable": "--border-radius",
+      "label": "圆润度",
+      "type": "range",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px"
+    }
+  ],
+  "keyProperties": [
+    { "property": "border-radius: 24px", "explanation": "大圆角模拟黏土的圆润体块" },
+    { "property": "box-shadow (inner+outer)", "explanation": "内外双阴影创造 3D 立体质感" },
+    { "property": "warm palette", "explanation": "温暖色调增强黏土/手工感" }
+  ]
+}

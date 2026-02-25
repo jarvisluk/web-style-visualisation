@@ -1,0 +1,49 @@
+import "./style.css";
+
+// Components
+import { renderNavbar } from "./components/navbar.js";
+import { renderHero } from "./components/hero.js";
+import { renderCards } from "./components/cards.js";
+import { renderButtons } from "./components/buttons.js";
+import { renderForm } from "./components/form.js";
+import { renderStats } from "./components/stats.js";
+
+// Panels
+import { renderStyleSelector } from "./panels/style-selector.js";
+import { renderTuningPanel } from "./panels/tuning-panel.js";
+import { renderCodePanel } from "./panels/code-panel.js";
+
+function init() {
+  // Render all components
+  renderNavbar(document.getElementById("navbar"));
+  renderStyleSelector(document.getElementById("style-selector"));
+  renderHero(document.getElementById("hero"));
+  renderCards(document.getElementById("cards"));
+  renderButtons(document.getElementById("buttons"));
+  renderForm(document.getElementById("form"));
+  renderStats(document.getElementById("stats"));
+
+  // Render panels
+  renderTuningPanel(document.getElementById("tuning-panel"));
+  renderCodePanel(document.getElementById("code-panel"));
+
+  // Toggle buttons
+  const tuningToggle = document.getElementById("tuning-toggle");
+  const tuningPanel = document.getElementById("tuning-panel");
+  tuningToggle.addEventListener("click", () => {
+    tuningPanel.classList.toggle("open");
+  });
+
+  const codeToggle = document.getElementById("code-toggle");
+  const codePanel = document.getElementById("code-panel");
+  codeToggle.addEventListener("click", () => {
+    codePanel.classList.toggle("open");
+  });
+}
+
+// Boot
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
+} else {
+  init();
+}

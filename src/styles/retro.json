@@ -1,0 +1,56 @@
+{
+  "id": "retro",
+  "name": "Retro / Pixel",
+  "nameZh": "像素复古",
+  "category": "theme",
+  "description": "Pixel art aesthetic with neon accents and retro typography",
+  "descriptionZh": "像素风、霓虹色、等宽字体，怀旧数字感",
+  "author": "core",
+  "references": [],
+  "variables": {
+    "--color-primary": "#00ff88",
+    "--color-primary-hover": "#00cc6a",
+    "--color-bg": "#0a0a0a",
+    "--color-surface": "#1a1a2e",
+    "--color-text": "#00ff88",
+    "--color-text-secondary": "#888888",
+    "--color-accent": "#ff0080",
+    "--color-border": "#00ff88",
+    "--border-radius": "0px",
+    "--border-width": "2px",
+    "--border-color": "#00ff88",
+    "--shadow-x": "0px",
+    "--shadow-y": "0px",
+    "--shadow-blur": "12px",
+    "--shadow-spread": "0px",
+    "--shadow-color": "rgba(0, 255, 136, 0.3)",
+    "--font-family": "'Press Start 2P', 'Courier Prime', monospace",
+    "--font-weight": "400",
+    "--font-weight-bold": "400",
+    "--backdrop-blur": "0px",
+    "--bg-opacity": "1",
+    "--glow-intensity": "1",
+    "--glow-color": "#00ff88"
+  },
+  "specialTuning": [
+    {
+      "variable": "--glow-color",
+      "label": "霓虹颜色",
+      "type": "color"
+    },
+    {
+      "variable": "--shadow-blur",
+      "label": "发光强度",
+      "type": "range",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px"
+    }
+  ],
+  "keyProperties": [
+    { "property": "font-family: pixel", "explanation": "像素字体是复古风的核心标识" },
+    { "property": "text-shadow: neon glow", "explanation": "霓虹发光效果营造 CRT 屏幕感" },
+    { "property": "color: #00ff88", "explanation": "绿色终端色致敬早期计算机" }
+  ]
+}

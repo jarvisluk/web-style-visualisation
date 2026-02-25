@@ -1,0 +1,37 @@
+{
+  "id": "your-style-id",
+  "name": "Your Style Name",
+  "nameZh": "你的风格名称",
+  "category": "modern",
+  "description": "One-line English description",
+  "descriptionZh": "一行中文描述",
+  "author": "your-github-username",
+  "references": [],
+  "variables": {
+    "--color-primary": "#3498db",
+    "--color-primary-hover": "#2980b9",
+    "--color-bg": "#ffffff",
+    "--color-surface": "#f5f5f5",
+    "--color-text": "#333333",
+    "--color-text-secondary": "#666666",
+    "--color-accent": "#e74c3c",
+    "--color-border": "#e0e0e0",
+    "--border-radius": "8px",
+    "--border-width": "1px",
+    "--border-color": "#e0e0e0",
+    "--shadow-x": "0px",
+    "--shadow-y": "2px",
+    "--shadow-blur": "8px",
+    "--shadow-spread": "0px",
+    "--shadow-color": "rgba(0, 0, 0, 0.1)",
+    "--font-family": "'Inter', sans-serif",
+    "--font-weight": "400",
+    "--font-weight-bold": "700",
+    "--backdrop-blur": "0px",
+    "--bg-opacity": "1"
+  },
+  "specialTuning": [],
+  "keyProperties": [
+    { "property": "example-property", "explanation": "解释这个属性为什么重要" }
+  ]
+}

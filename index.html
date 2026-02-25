@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Style Visualisation — 网站风格可视化</title>
+  <meta name="description" content="交互式网站风格可视化工具：选择一种设计风格，整站 UI 实时切换，支持参数微调与 CSS 导出。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&family=Courier+Prime:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar"></nav>
+
+    <!-- Style Selector -->
+    <section id="style-selector" class="style-selector-section"></section>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <div class="preview-area">
+        <!-- Hero -->
+        <section id="hero" class="section-block"></section>
+
+        <!-- Cards -->
+        <section id="cards" class="section-block"></section>
+
+        <!-- Buttons -->
+        <section id="buttons" class="section-block"></section>
+
+        <!-- Form + Stats side by side -->
+        <div class="split-section">
+          <section id="form" class="section-block"></section>
+          <section id="stats" class="section-block"></section>
+        </div>
+      </div>
+    </main>
+
+    <!-- Tuning Panel (sidebar) -->
+    <aside id="tuning-panel" class="tuning-panel"></aside>
+    <button id="tuning-toggle" class="tuning-toggle" aria-label="Toggle tuning panel">⚙️</button>
+
+    <!-- Code Panel (bottom drawer) -->
+    <div id="code-panel" class="code-panel"></div>
+    <button id="code-toggle" class="code-toggle" aria-label="Toggle code panel">{ }</button>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "id": "flat",
+  "name": "Flat Design",
+  "nameZh": "扁平设计",
+  "category": "classic",
+  "description": "Clean, minimal, no shadows, bold solid colors",
+  "descriptionZh": "极简纯粹，大面积纯色，零阴影零渐变",
+  "author": "core",
+  "references": ["https://en.wikipedia.org/wiki/Flat_design"],
+  "variables": {
+    "--color-primary": "#3498db",
+    "--color-primary-hover": "#2980b9",
+    "--color-bg": "#ffffff",
+    "--color-surface": "#ecf0f1",
+    "--color-text": "#2c3e50",
+    "--color-text-secondary": "#7f8c8d",
+    "--color-accent": "#e74c3c",
+    "--color-border": "#bdc3c7",
+    "--border-radius": "0px",
+    "--border-width": "0px",
+    "--border-color": "transparent",
+    "--shadow-x": "0px",
+    "--shadow-y": "0px",
+    "--shadow-blur": "0px",
+    "--shadow-spread": "0px",
+    "--shadow-color": "transparent",
+    "--font-family": "'Inter', sans-serif",
+    "--font-weight": "400",
+    "--font-weight-bold": "700",
+    "--backdrop-blur": "0px",
+    "--bg-opacity": "1"
+  },
+  "specialTuning": [],
+  "keyProperties": [
+    { "property": "box-shadow: none", "explanation": "扁平设计的核心：完全没有阴影" },
+    { "property": "border-radius: 0", "explanation": "直角边缘强化几何感" },
+    { "property": "background: solid color", "explanation": "大面积纯色块，无渐变" }
+  ]
+}

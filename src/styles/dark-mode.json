@@ -1,0 +1,39 @@
+{
+  "id": "dark-mode",
+  "name": "Dark Mode",
+  "nameZh": "深色模式",
+  "category": "theme",
+  "description": "Dark background with reduced brightness and focused content",
+  "descriptionZh": "深色背景，降低亮度，聚焦内容本身",
+  "author": "core",
+  "references": ["https://m3.material.io/styles/color/dark-theme"],
+  "variables": {
+    "--color-primary": "#bb86fc",
+    "--color-primary-hover": "#9a67ea",
+    "--color-bg": "#121212",
+    "--color-surface": "#1e1e2e",
+    "--color-text": "#e0e0e0",
+    "--color-text-secondary": "#a0a0a0",
+    "--color-accent": "#03dac6",
+    "--color-border": "rgba(255, 255, 255, 0.08)",
+    "--border-radius": "12px",
+    "--border-width": "1px",
+    "--border-color": "rgba(255, 255, 255, 0.08)",
+    "--shadow-x": "0px",
+    "--shadow-y": "4px",
+    "--shadow-blur": "24px",
+    "--shadow-spread": "0px",
+    "--shadow-color": "rgba(0, 0, 0, 0.5)",
+    "--font-family": "'Inter', sans-serif",
+    "--font-weight": "400",
+    "--font-weight-bold": "600",
+    "--backdrop-blur": "0px",
+    "--bg-opacity": "1"
+  },
+  "specialTuning": [],
+  "keyProperties": [
+    { "property": "background: #121212", "explanation": "纯黑偏灰的基底，减少视觉疲劳" },
+    { "property": "color: #e0e0e0", "explanation": "柔和白而非纯白，降低对比刺激" },
+    { "property": "border: rgba(255,255,255,0.08)", "explanation": "极低不透明度边框提供微弱分隔" }
+  ]
+}

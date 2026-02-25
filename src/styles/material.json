@@ -1,0 +1,49 @@
+{
+  "id": "material",
+  "name": "Material Design",
+  "nameZh": "质感设计",
+  "category": "classic",
+  "description": "Google's design system with elevation-based depth and structured layout",
+  "descriptionZh": "基于纸片隐喻的层级体系，阴影表达深度",
+  "author": "core",
+  "references": ["https://m3.material.io/"],
+  "variables": {
+    "--color-primary": "#6750a4",
+    "--color-primary-hover": "#5639a0",
+    "--color-bg": "#fffbfe",
+    "--color-surface": "#f7f2fa",
+    "--color-text": "#1c1b1f",
+    "--color-text-secondary": "#49454f",
+    "--color-accent": "#b3261e",
+    "--color-border": "#cac4d0",
+    "--border-radius": "12px",
+    "--border-width": "0px",
+    "--border-color": "transparent",
+    "--shadow-x": "0px",
+    "--shadow-y": "2px",
+    "--shadow-blur": "6px",
+    "--shadow-spread": "0px",
+    "--shadow-color": "rgba(0, 0, 0, 0.15)",
+    "--font-family": "'Roboto', sans-serif",
+    "--font-weight": "400",
+    "--font-weight-bold": "500",
+    "--backdrop-blur": "0px",
+    "--bg-opacity": "1"
+  },
+  "specialTuning": [
+    {
+      "variable": "--shadow-blur",
+      "label": "Elevation 层级",
+      "type": "range",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px"
+    }
+  ],
+  "keyProperties": [
+    { "property": "box-shadow (elevation)", "explanation": "阴影深度对应 Material 层级系统" },
+    { "property": "border-radius: 12px", "explanation": "Material 3 偏好更圆润的圆角" },
+    { "property": "font-family: Roboto", "explanation": "Google 官方字体" }
+  ]
+}
