@@ -93,6 +93,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  transition: padding-right var(--transition-speed) ease;
+}
+
+body.tuning-open #app {
+  padding-right: 320px;
 }
 
 /* --- Navbar --- */
@@ -221,11 +226,7 @@ body {
   margin-bottom: var(--spacing-xl);
 }
 
-.split-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-xl);
-}
+
 
 /* --- Hero --- */
 .hero {

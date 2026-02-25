@@ -61,6 +61,7 @@ function buildPanel() {
 
   header.querySelector("#tuning-close-btn").addEventListener("click", () => {
     panelContainer.classList.remove("open");
+    document.body.classList.remove("tuning-open");
   });
 
   // Common sections

@@ -5,7 +5,6 @@ import { renderNavbar } from "./components/navbar.js";
 import { renderHero } from "./components/hero.js";
 import { renderCards } from "./components/cards.js";
 import { renderButtons } from "./components/buttons.js";
-import { renderForm } from "./components/form.js";
 import { renderStats } from "./components/stats.js";
 
 // Panels
@@ -20,7 +19,6 @@ function init() {
   renderHero(document.getElementById("hero"));
   renderCards(document.getElementById("cards"));
   renderButtons(document.getElementById("buttons"));
-  renderForm(document.getElementById("form"));
   renderStats(document.getElementById("stats"));
 
   // Render panels
@@ -30,8 +28,11 @@ function init() {
   // Toggle buttons
   const tuningToggle = document.getElementById("tuning-toggle");
   const tuningPanel = document.getElementById("tuning-panel");
+  // Default open — sync body class
+  document.body.classList.add("tuning-open");
   tuningToggle.addEventListener("click", () => {
     tuningPanel.classList.toggle("open");
+    document.body.classList.toggle("tuning-open");
   });
 
   const codeToggle = document.getElementById("code-toggle");
