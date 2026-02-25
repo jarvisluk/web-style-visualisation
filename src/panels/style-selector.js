@@ -1,67 +1,85 @@
-import { STYLE_LIST, CATEGORIES } from "../styles/index.js";
-import { applyStyle, applyCustomVariables } from "../utils/css-var-manager.js";
+import { STYLE_LIST } from "../styles/index.js";
+import { applyStyle, applyCustomVariables, getCurrentStyleId } from "../utils/css-var-manager.js";
+import { t, getStyleName, getCategoryName, onLangChange } from "../utils/i18n.js";
 
 export function renderStyleSelector(container) {
-  const title = document.createElement("div");
-  title.className = "style-selector-title";
-  title.textContent = "Select Style";
+  let hasInitialScrolled = false;
 
-  const grid = document.createElement("div");
-  grid.className = "style-selector-grid";
+  const render = () => {
+    container.innerHTML = "";
+    
+    const title = document.createElement("div");
+    title.className = "style-selector-title";
+    title.textContent = t("selector.title");
 
-  // Built-in style cards
-  STYLE_LIST.forEach((style) => {
-    const card = document.createElement("div");
-    card.className = "style-card";
-    card.dataset.styleId = style.id;
+    const grid = document.createElement("div");
+    grid.className = "style-selector-grid";
 
-    card.innerHTML = `
-      <div class="style-card-name">${style.name}</div>
-      <div class="style-card-category">${CATEGORIES[style.category] || style.category}</div>
+    // Built-in style cards
+    STYLE_LIST.forEach((style) => {
+      const card = document.createElement("div");
+      card.className = "style-card";
+      card.dataset.styleId = style.id;
+
+      card.innerHTML = `
+        <div class="style-card-name">${getStyleName(style)}</div>
+        <div class="style-card-category">${getCategoryName(style.category)}</div>
+      `;
+
+      card.addEventListener("click", () => {
+        applyStyle(style.id);
+        updateActiveState(grid, style.id);
+      });
+
+      grid.appendChild(card);
+    });
+
+    // Custom CSS card (last in list)
+    const customCard = document.createElement("div");
+    customCard.className = "style-card style-card-custom";
+    customCard.dataset.styleId = "custom";
+    customCard.innerHTML = `
+      <div class="style-card-name">${t("custom.name")}</div>
+      <div class="style-card-category">${getCategoryName("custom")}</div>
     `;
-
-    card.addEventListener("click", () => {
-      applyStyle(style.id);
-      updateActiveState(grid, style.id);
+    customCard.addEventListener("click", () => {
+      openCustomCSSModal(grid);
     });
+    grid.appendChild(customCard);
 
-    grid.appendChild(card);
-  });
+    // Custom CSS modal
+    const modal = createCustomCSSModal(grid);
 
-  // Custom CSS card (last in list)
-  const customCard = document.createElement("div");
-  customCard.className = "style-card style-card-custom";
-  customCard.dataset.styleId = "custom";
-  customCard.innerHTML = `
-    <div class="style-card-name">＋ Custom</div>
-    <div class="style-card-category">上传 CSS</div>
-  `;
-  customCard.addEventListener("click", () => {
-    openCustomCSSModal(grid);
-  });
-  grid.appendChild(customCard);
+    container.appendChild(title);
+    container.appendChild(grid);
+    container.appendChild(modal);
 
-  // Custom CSS modal
-  const modal = createCustomCSSModal(grid);
+    const activeId = getCurrentStyleId();
+    if (activeId) {
+      updateActiveState(grid, activeId);
+    } else if (STYLE_LIST.length > 0) {
+      // Apply default style if none active
+      const defaultStyle = STYLE_LIST.find((s) => s.id === "material") || STYLE_LIST[0];
+      applyStyle(defaultStyle.id);
+      updateActiveState(grid, defaultStyle.id);
+    }
 
-  container.appendChild(title);
-  container.appendChild(grid);
-  container.appendChild(modal);
+    // Scroll initialization
+    if (!hasInitialScrolled) {
+      requestAnimationFrame(() => {
+        const idToScroll = getCurrentStyleId() || "material";
+        const activeCard = grid.querySelector(`.style-card[data-style-id="${idToScroll}"]`);
+        if (activeCard) {
+          const scrollLeft = activeCard.offsetLeft - (grid.clientWidth / 2) + (activeCard.offsetWidth / 2);
+          grid.scrollTo({ left: scrollLeft, behavior: "instant" });
+        }
+        hasInitialScrolled = true;
+      });
+    }
+  };
 
-  // Apply default style
-  if (STYLE_LIST.length > 0) {
-    const defaultStyle = STYLE_LIST.find((s) => s.id === "material") || STYLE_LIST[0];
-    applyStyle(defaultStyle.id);
-    updateActiveState(grid, defaultStyle.id);
-
-    requestAnimationFrame(() => {
-      const activeCard = grid.querySelector(`.style-card[data-style-id="${defaultStyle.id}"]`);
-      if (activeCard) {
-        const scrollLeft = activeCard.offsetLeft - (grid.clientWidth / 2) + (activeCard.offsetWidth / 2);
-        grid.scrollTo({ left: scrollLeft, behavior: "instant" });
-      }
-    });
-  }
+  render();
+  onLangChange(render);
 }
 
 function createCustomCSSModal(grid) {
@@ -72,23 +90,23 @@ function createCustomCSSModal(grid) {
     <div class="custom-css-modal-backdrop"></div>
     <div class="custom-css-modal-content">
       <div class="custom-css-modal-header">
-        <span class="custom-css-modal-title">Upload Custom CSS Variables</span>
+        <span class="custom-css-modal-title">${t("custom.title")}</span>
         <button class="custom-css-modal-close">×</button>
       </div>
       <div class="custom-css-modal-body">
-        <p class="custom-css-modal-hint">粘贴包含 CSS Variables 的代码，或上传 .css 文件。<br>格式示例：<code>--color-primary: #6366f1;</code></p>
+        <p class="custom-css-modal-hint">${t("custom.hint")}</p>
         <textarea class="custom-css-textarea" placeholder=":root {\n  --color-primary: #6366f1;\n  --color-bg: #0f0f23;\n  --color-text: #e2e8f0;\n  --border-radius: 16px;\n  ...\n}" rows="10"></textarea>
         <div class="custom-css-file-row">
           <label class="btn btn-ghost btn-sm custom-css-file-label">
-            📁 Upload .css file
+            ${t("custom.upload")}
             <input type="file" accept=".css,.txt" class="custom-css-file-input" />
           </label>
           <span class="custom-css-file-name"></span>
         </div>
       </div>
       <div class="custom-css-modal-footer">
-        <button class="btn btn-ghost btn-sm custom-css-cancel">Cancel</button>
-        <button class="btn btn-primary btn-sm custom-css-apply">Apply</button>
+        <button class="btn btn-ghost btn-sm custom-css-cancel">${t("custom.cancel")}</button>
+        <button class="btn btn-primary btn-sm custom-css-apply">${t("custom.apply")}</button>
       </div>
     </div>
   `;

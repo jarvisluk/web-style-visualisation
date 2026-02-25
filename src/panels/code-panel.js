@@ -1,17 +1,23 @@
 import { onChange } from "../utils/css-var-manager.js";
 import { generateCSS, copyToClipboard } from "../utils/export.js";
+import { t, onLangChange } from "../utils/i18n.js";
 
 export function renderCodePanel(container) {
-  buildCodePanel(container);
+  const render = () => {
+    buildCodePanel(container);
+  };
+  render();
   onChange(() => updateCode(container));
+  onLangChange(render);
 }
 
 function buildCodePanel(container) {
   container.innerHTML = `
     <div class="code-panel-header">
-      <span class="code-panel-title">CSS Variables Output</span>
+      <span class="code-panel-title">${t("code.title")}</span>
       <div class="code-panel-actions">
-        <button class="code-panel-btn" id="code-copy-btn">📋 Copy</button>
+        <button class="code-panel-btn" id="code-download-btn">${t("code.download")}</button>
+        <button class="code-panel-btn" id="code-copy-btn">${t("code.copy")}</button>
       </div>
     </div>
     <div class="code-panel-body">
@@ -19,15 +25,26 @@ function buildCodePanel(container) {
     </div>
   `;
 
+  container.querySelector("#code-download-btn").addEventListener("click", () => {
+    const css = generateCSS();
+    const blob = new Blob([css], { type: "text/css" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "variables.css";
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
   container.querySelector("#code-copy-btn").addEventListener("click", async () => {
     const css = generateCSS();
     const success = await copyToClipboard(css);
     const btn = container.querySelector("#code-copy-btn");
     if (success) {
-      btn.textContent = "✅ Copied!";
+      btn.textContent = t("code.copied");
       btn.classList.add("copied");
       setTimeout(() => {
-        btn.textContent = "📋 Copy";
+        btn.textContent = t("code.copy");
         btn.classList.remove("copied");
       }, 2000);
     }

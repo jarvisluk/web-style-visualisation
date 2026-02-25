@@ -1,15 +1,18 @@
 import { getCurrentStyle } from "../utils/css-var-manager.js";
 import { onChange } from "../utils/css-var-manager.js";
+import { getStyleName, getStyleDesc, onLangChange } from "../utils/i18n.js";
 
 export function renderHero(container) {
-  updateHero(container);
-  onChange(() => updateHero(container));
+  const render = () => updateHero(container);
+  render();
+  onChange(render);
+  onLangChange(render);
 }
 
 function updateHero(container) {
   const style = getCurrentStyle();
-  const name = style ? style.name : "Web Style Visualisation";
-  const desc = style ? style.descriptionZh : "选择一种风格，体验整站实时变化";
+  const name = style ? getStyleName(style) : "Web Style Visualisation";
+  const desc = style ? getStyleDesc(style) : "Select a style to see the entire page transform in real-time";
 
   container.innerHTML = `
     <div class="hero">
