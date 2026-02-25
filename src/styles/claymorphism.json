@@ -33,7 +33,8 @@
   "specialTuning": [
     {
       "variable": "--border-radius",
-      "label": "圆润度",
+      "label": "Roundness",
+      "labelZh": "圆润度",
       "type": "range",
       "min": 8,
       "max": 40,

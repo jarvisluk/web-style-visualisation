@@ -28,6 +28,7 @@
         "properties": {
           "variable": { "type": "string" },
           "label": { "type": "string" },
+          "labelZh": { "type": "string" },
           "type": { "type": "string", "enum": ["range", "color", "select"] },
           "min": { "type": "number" },
           "max": { "type": "number" },

@@ -33,7 +33,8 @@
   "specialTuning": [
     {
       "variable": "--shadow-blur",
-      "label": "阴影模糊",
+      "label": "Shadow Blur",
+      "labelZh": "阴影模糊",
       "type": "range",
       "min": 4,
       "max": 40,

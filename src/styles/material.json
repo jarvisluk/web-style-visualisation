@@ -33,7 +33,8 @@
   "specialTuning": [
     {
       "variable": "--shadow-blur",
-      "label": "Elevation 层级",
+      "label": "Elevation",
+      "labelZh": "层级",
       "type": "range",
       "min": 0,
       "max": 24,

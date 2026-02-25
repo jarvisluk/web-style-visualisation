@@ -33,7 +33,8 @@
   "specialTuning": [
     {
       "variable": "--backdrop-blur",
-      "label": "模糊强度",
+      "label": "Blur Intensity",
+      "labelZh": "模糊强度",
       "type": "range",
       "min": 0,
       "max": 30,
@@ -42,7 +43,8 @@
     },
     {
       "variable": "--bg-opacity",
-      "label": "背景透明度",
+      "label": "Background Opacity",
+      "labelZh": "背景透明度",
       "type": "range",
       "min": 0,
       "max": 1,

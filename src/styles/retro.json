@@ -35,12 +35,14 @@
   "specialTuning": [
     {
       "variable": "--glow-color",
-      "label": "霓虹颜色",
+      "label": "Neon Color",
+      "labelZh": "霓虹颜色",
       "type": "color"
     },
     {
       "variable": "--shadow-blur",
-      "label": "发光强度",
+      "label": "Glow Intensity",
+      "labelZh": "发光强度",
       "type": "range",
       "min": 0,
       "max": 30,

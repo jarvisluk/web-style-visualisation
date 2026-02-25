@@ -107,12 +107,14 @@ function renderSection(parent, title, controls, vars) {
     row.className = "tuning-row";
 
     const currentValue = vars[ctrl.variable] || "";
+    const lang = document.documentElement.lang;
+    const labelText = (lang === "zh-CN" && ctrl.labelZh) ? ctrl.labelZh : ctrl.label;
 
     if (ctrl.type === "color") {
       const hexValue = toHexSafe(currentValue);
       row.innerHTML = `
         <div class="tuning-label">
-          <span>${ctrl.label}</span>
+          <span>${labelText}</span>
           <span class="tuning-value">${currentValue}</span>
         </div>
         <input type="color" class="tuning-color-input" value="${hexValue}" />
@@ -126,7 +128,7 @@ function renderSection(parent, title, controls, vars) {
       const numVal = parseFloat(currentValue) || ctrl.min || 0;
       row.innerHTML = `
         <div class="tuning-label">
-          <span>${ctrl.label}</span>
+          <span>${labelText}</span>
           <span class="tuning-value">${numVal}${ctrl.unit || ""}</span>
         </div>
         <input type="range" class="tuning-slider"
@@ -142,7 +144,7 @@ function renderSection(parent, title, controls, vars) {
       const options = ctrl.options || [];
       row.innerHTML = `
         <div class="tuning-label">
-          <span>${ctrl.label}</span>
+          <span>${labelText}</span>
         </div>
         <select class="tuning-select">
           ${options.map((opt) => `<option value="${opt}" ${currentValue.includes(opt.split(",")[0].replace(/'/g, "")) ? "selected" : ""}>${opt}</option>`).join("")}
