@@ -42,6 +42,13 @@ const translations = {
     "custom.upload": "Upload .css file",
     "custom.apply": "Apply",
     "custom.cancel": "Cancel",
+    "cards.c1.title": "Color System",
+    "cards.c1.text": "Every style defines a unique color palette. Switch the entire site's color language with one click.",
+    "cards.c2.title": "Shape Language",
+    "cards.c2.text": "Border radii, borders, and shadows form the shape language. The tuning panel helps you understand every parameter.",
+    "cards.c3.title": "Special Effects",
+    "cards.c3.text": "Glass blur, neon glow, hard shadows — distinct effects are key factors in differentiating styles.",
+    "cards.learn": "Learn More",
   },
   zh: {
     "nav.preview": "预览",
@@ -84,6 +91,13 @@ const translations = {
     "custom.upload": "上传 .css 文件",
     "custom.apply": "应用",
     "custom.cancel": "取消",
+    "cards.c1.title": "色彩系统",
+    "cards.c1.text": "每种风格定义独特的配色方案，从主色到强调色，一键切换整站色彩语言。",
+    "cards.c2.title": "形状语言",
+    "cards.c2.text": "圆角、边框、阴影共同构成风格的形状语言，微调面板让你深入理解每个参数。",
+    "cards.c3.title": "专属特效",
+    "cards.c3.text": "毛玻璃模糊、霓虹发光、硬阴影 — 独特效果是区分风格的关键因素。",
+    "cards.learn": "了解更多",
   }
 };
 
