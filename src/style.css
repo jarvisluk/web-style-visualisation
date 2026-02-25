@@ -684,51 +684,13 @@ body.tuning-open #app {
   color: var(--color-text);
 }
 
-/* --- Code Panel (bottom drawer) --- */
-.code-panel {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 320px;
+/* --- Code Panel (inline) --- */
+.code-panel-inline {
   background: #1e1e2e;
   color: #cdd6f4;
-  border-top: 2px solid var(--color-primary);
-  z-index: 200;
-  transform: translateY(100%);
-  transition: transform var(--transition-speed) ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.code-panel.open {
-  transform: translateY(0);
-}
-
-.code-toggle {
-  position: fixed;
-  right: var(--spacing);
-  bottom: var(--spacing);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: #1e1e2e;
-  color: #cdd6f4;
-  border: 2px solid var(--color-primary);
-  font-size: 14px;
-  font-family: "Courier Prime", monospace;
-  font-weight: 700;
-  cursor: pointer;
-  z-index: 201;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.code-toggle:hover {
-  background: var(--color-primary);
-  color: #fff;
+  border-radius: var(--border-radius);
+  border: var(--border-width) solid var(--border-color);
+  overflow: hidden;
 }
 
 .code-panel-header {
@@ -737,7 +699,6 @@ body.tuning-open #app {
   align-items: center;
   padding: var(--spacing) var(--spacing-lg);
   border-bottom: 1px solid #313244;
-  flex-shrink: 0;
 }
 
 .code-panel-title {
@@ -773,7 +734,7 @@ body.tuning-open #app {
 }
 
 .code-panel-body {
-  flex: 1;
+  max-height: 400px;
   overflow: auto;
   padding: var(--spacing-lg);
 }
@@ -787,7 +748,7 @@ body.tuning-open #app {
   color: #cdd6f4;
 }
 
-/* Prism.js overrides for dark code panel */
+/* Syntax highlighting tokens */
 .code-panel-body .token.property { color: #89b4fa; }
 .code-panel-body .token.value,
 .code-panel-body .token.string { color: #a6e3a1; }

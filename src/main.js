@@ -34,12 +34,6 @@ function init() {
     tuningPanel.classList.toggle("open");
     document.body.classList.toggle("tuning-open");
   });
-
-  const codeToggle = document.getElementById("code-toggle");
-  const codePanel = document.getElementById("code-panel");
-  codeToggle.addEventListener("click", () => {
-    codePanel.classList.toggle("open");
-  });
 }
 
 // Boot

@@ -35,6 +35,15 @@ export function renderStyleSelector(container) {
     const defaultStyle = STYLE_LIST.find((s) => s.id === "material") || STYLE_LIST[0];
     applyStyle(defaultStyle.id);
     updateActiveState(grid, defaultStyle.id);
+
+    // Center scroll on active card
+    requestAnimationFrame(() => {
+      const activeCard = grid.querySelector(`.style-card[data-style-id="${defaultStyle.id}"]`);
+      if (activeCard) {
+        const scrollLeft = activeCard.offsetLeft - (grid.clientWidth / 2) + (activeCard.offsetWidth / 2);
+        grid.scrollTo({ left: scrollLeft, behavior: "instant" });
+      }
+    });
   }
 }
 
