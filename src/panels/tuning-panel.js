@@ -1,5 +1,5 @@
 import { setVariable, resetToStyle, getCurrentStyle, getCurrentVariables, onChange } from "../utils/css-var-manager.js";
-import { t, onLangChange } from "../utils/i18n.js";
+import { t, getLang, onLangChange } from "../utils/i18n.js";
 
 // --- Font state (persists across panel re-renders) ---
 let cachedSystemFonts = null;   // null = not yet detected
@@ -196,8 +196,8 @@ function renderSection(parent, title, controls, vars) {
     row.className = "tuning-row";
 
     const currentValue = vars[ctrl.variable] || "";
-    const lang = document.documentElement.lang;
-    const labelText = (lang === "zh-CN" && ctrl.labelZh) ? ctrl.labelZh : ctrl.label;
+    const lang = getLang();
+    const labelText = (lang === "zh" && ctrl.labelZh) ? ctrl.labelZh : ctrl.label;
 
     if (ctrl.type === "color") {
       const hexValue = toHexSafe(currentValue);
