@@ -213,6 +213,150 @@ body.tuning-open #app {
   letter-spacing: 0.05em;
 }
 
+/* Custom CSS card */
+.style-card-custom {
+  border-style: dashed;
+  border-color: var(--color-primary);
+  background: transparent;
+}
+
+.style-card-custom .style-card-name {
+  color: var(--color-primary);
+}
+
+/* Custom CSS Modal */
+.custom-css-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+}
+
+.custom-css-modal.open {
+  display: block;
+}
+
+.custom-css-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.custom-css-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 560px;
+  max-width: 90vw;
+  max-height: 85vh;
+  background: var(--color-bg);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.custom-css-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing) var(--spacing-lg);
+  border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.custom-css-modal-title {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+}
+
+.custom-css-modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  line-height: 1;
+  padding: var(--spacing-xs);
+}
+
+.custom-css-modal-close:hover {
+  color: var(--color-text);
+}
+
+.custom-css-modal-body {
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+  flex: 1;
+}
+
+.custom-css-modal-hint {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing);
+  line-height: 1.5;
+}
+
+.custom-css-modal-hint code {
+  background: var(--color-surface);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "Courier Prime", monospace;
+  font-size: 12px;
+}
+
+.custom-css-textarea {
+  width: 100%;
+  min-height: 180px;
+  padding: var(--spacing);
+  font-family: "Courier Prime", monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  resize: vertical;
+  outline: none;
+}
+
+.custom-css-textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+.custom-css-file-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing);
+  margin-top: var(--spacing);
+}
+
+.custom-css-file-label {
+  cursor: pointer;
+}
+
+.custom-css-file-input {
+  display: none;
+}
+
+.custom-css-file-name {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.custom-css-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+  padding: var(--spacing) var(--spacing-lg);
+  border-top: var(--border-width) solid var(--border-color);
+}
+
 /* --- Main Content --- */
 .main-content {
   flex: 1;
@@ -562,6 +706,10 @@ body.tuning-open #app {
 .tuning-toggle:hover {
   background: var(--color-primary-hover);
   transform: scale(1.05);
+}
+
+body.tuning-open .tuning-toggle {
+  display: none;
 }
 
 .tuning-section {

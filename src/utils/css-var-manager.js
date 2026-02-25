@@ -17,10 +17,6 @@ export function getCurrentStyleId() {
   return currentStyleId;
 }
 
-export function getCurrentStyle() {
-  return currentStyleId ? STYLES[currentStyleId] : null;
-}
-
 export function applyStyle(styleId) {
   const style = STYLES[styleId];
   if (!style) return;
@@ -67,6 +63,57 @@ export function getCurrentVariables() {
 
 export function getComputedVariable(name) {
   return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
+
+/**
+ * Apply custom CSS variables from raw CSS text.
+ * Parses :root { --var: value; } blocks or plain --var: value; lines.
+ */
+let customStyle = null;
+
+export function applyCustomVariables(cssText) {
+  const variables = {};
+  // Match --variable: value patterns
+  const regex = /(--[\w-]+)\s*:\s*([^;]+)/g;
+  let match;
+  while ((match = regex.exec(cssText)) !== null) {
+    variables[match[1].trim()] = match[2].trim();
+  }
+
+  if (Object.keys(variables).length === 0) return false;
+
+  customStyle = {
+    id: "custom",
+    name: "Custom",
+    nameZh: "自定义",
+    category: "custom",
+    description: "User-uploaded custom CSS variables",
+    descriptionZh: "用户上传的自定义 CSS 变量",
+    author: "user",
+    variables,
+    specialTuning: [],
+    keyProperties: [{ property: "custom upload", explanation: "用户自定义" }]
+  };
+
+  currentStyleId = "custom";
+  overrides = {};
+  const root = document.documentElement;
+
+  VARIABLE_DEFINITIONS.forEach((varName) => {
+    root.style.removeProperty(varName);
+  });
+
+  Object.entries(variables).forEach(([key, value]) => {
+    root.style.setProperty(key, value);
+  });
+
+  notifyListeners();
+  return true;
+}
+
+export function getCurrentStyle() {
+  if (currentStyleId === "custom" && customStyle) return customStyle;
+  return currentStyleId ? STYLES[currentStyleId] : null;
 }
 
 export function onChange(fn) {
