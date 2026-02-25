@@ -807,6 +807,64 @@ body.tuning-open .tuning-toggle {
   cursor: pointer;
 }
 
+.tuning-select optgroup {
+  font-weight: 600;
+  font-style: normal;
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tuning-select option {
+  font-weight: 400;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  padding: 4px 8px;
+}
+
+.tuning-font-select {
+  max-height: 300px;
+}
+
+.tuning-font-actions {
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-sm);
+}
+
+.tuning-font-btn {
+  flex: 1;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px dashed var(--border-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color var(--transition-speed) ease,
+              background var(--transition-speed) ease;
+}
+
+.tuning-font-btn:hover {
+  border-color: var(--color-primary);
+  background: var(--color-bg);
+}
+
+.tuning-font-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.tuning-font-status {
+  font-size: 11px;
+  color: var(--color-primary);
+  margin-top: var(--spacing-xs);
+  min-height: 16px;
+}
+
 .tuning-actions {
   display: flex;
   gap: var(--spacing-sm);
