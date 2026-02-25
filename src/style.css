@@ -161,7 +161,7 @@ body.tuning-open #app {
 .style-selector-grid {
   display: flex;
   gap: var(--spacing);
-  padding-bottom: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-sm);
   overflow-x: auto;
 }
 
