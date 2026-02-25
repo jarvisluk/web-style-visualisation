@@ -1,6 +1,6 @@
 # 🎨 Web Style Visualisation
 
-[中文文档](./README_zh.md)
+[English](./README.md)
 
 ![Status](https://img.shields.io/badge/status-docs--first-orange)
 ![Vite](https://img.shields.io/badge/Vite-5.x-646CFF?logo=vite&logoColor=fff)
@@ -8,50 +8,50 @@
 ![Deploy](https://img.shields.io/badge/Deploy-GitHub_Pages-222?logo=github&logoColor=fff)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-> An interactive style playground for designers and frontend developers: Select a design style, and the entire site UI will switch in real-time, supporting fine-grained parameter tuning and CSS export.
+> 一个面向设计师和前端开发者的交互式风格实验场：选择一种设计风格后，整站 UI 会实时切换，并支持细粒度参数微调与 CSS 导出。
 
 ## What & Why
 
-`Web Style Visualisation` solves a high-frequency problem:
+`Web Style Visualisation` 解决一个高频问题：
 
-- Design styles are usually just shown in screenshots, making it impossible to intuitively see the true effect of "whole-site consistency".
-- Learners might know the concepts (like `Flat Design`, `Glassmorphism`), but struggle to quickly grasp their differences in real components.
-- When teams discuss style schemes, there is often a lack of an interactive demonstration carrier with copyable parameters.
+- 设计风格通常只在截图里展示，无法直观看到“整站一致性”的真实效果。
+- 学习者知道概念（如 `Flat Design`、`Glassmorphism`），但难以快速理解它们在真实组件中的差异。
+- 团队讨论风格方案时，常缺少可交互的、可复制参数的演示载体。
 
-The core value of this project:
+本项目的核心价值：
 
-- Use the same page skeleton to demonstrate multiple design styles, ensuring fair comparisons.
-- Use `CSS Variables` as a unified abstraction layer, making both "style switching" and "parameter fine-tuning" easily explainable, reusable, and exportable.
-- Lower the barrier for community contributions; adding a new style merely requires submitting a JSON file.
+- 用同一套页面骨架演示多种设计风格，确保对比公平。
+- 以 `CSS Variables` 为统一抽象层，让“风格切换”和“参数微调”都可解释、可复用、可导出。
+- 降低社区贡献门槛，新增风格只需提交一个 JSON 文件。
 
-## Table of Contents
+## 目录
 
-- [Core Features](#core-features)
+- [核心特性](#核心特性)
 - [Quick Start](#quick-start)
-- [Core Interaction Model](#core-interaction-model)
-- [Style Spectrum](#style-spectrum)
-- [Tuning System](#tuning-system)
-- [Technical Architecture](#technical-architecture)
-- [Data Model & Auto-Discovery](#data-model--auto-discovery)
-- [Project Structure (Target State)](#project-structure-target-state)
-- [Deployment Plan](#deployment-plan)
+- [核心交互模型](#核心交互模型)
+- [风格谱系](#风格谱系)
+- [微调系统](#微调系统)
+- [技术架构](#技术架构)
+- [数据模型与自动发现](#数据模型与自动发现)
+- [项目结构（目标形态）](#项目结构目标形态)
+- [部署方案](#部署方案)
 - [Roadmap](#roadmap)
-- [Contributing](#contributing)
+- [贡献](#贡献)
 - [License](#license)
 
-## Core Features
+## 核心特性
 
-| Module | Capability | Value to Developers |
+| 模块 | 能力 | 对开发者的价值 |
 |---|---|---|
-| Style Switcher | One-click switch between `Flat / Glass / Neu / Brutal / Dark` | Quickly compare visual languages horizontally |
-| Real-time Render | `Navbar`, `Hero`, `Card`, `Form`, `Stats` update synchronously | Verify style consistency across multiple components |
-| Tuning Panel | Adjust parameters like colors, radius, shadows, fonts, spacing | Conduct "progressive style exploration", not an either/or choice |
-| Code Panel | Real-time display of current variable sets with copy/export | Direct implementation in business projects |
-| JSON Extension | Auto-loads after adding new style files | Lowers the cost of open-source contribution |
+| 风格切换器 | 一键切换 `Flat / Glass / Neu / Brutal / Dark` 等风格 | 快速横向对比视觉语言 |
+| 全站实时渲染 | `Navbar`、`Hero`、`Card`、`Form`、`Stats` 同步更新 | 验证风格在多组件下的一致性 |
+| 微调面板 | 调整颜色、圆角、阴影、字体、间距等参数 | 做“渐进式风格探索”，不是二选一 |
+| 代码面板 | 实时展示当前变量集并支持复制/导出 | 直接落地到业务项目 |
+| JSON 风格扩展 | 新增风格文件后自动加载 | 降低开源贡献成本 |
 
 ## Quick Start
 
-The current repository is in the `docs-first` phase (currently only contains documents). The following commands are for the standard development workflow after code initialization:
+当前仓库为 `docs-first` 阶段（目前仅包含文档）。以下命令用于后续代码初始化后的标准开发流程：
 
 ```bash
 git clone <repo-url>
@@ -60,7 +60,7 @@ npm install
 npm run dev
 ```
 
-Common commands:
+常用命令：
 
 ```bash
 npm run build
@@ -68,7 +68,7 @@ npm run preview
 npm run validate
 ```
 
-## Core Interaction Model
+## 核心交互模型
 
 ### Interaction Snapshot (ASCII)
 
@@ -110,77 +110,77 @@ flowchart LR
     H --> I["Copy / Export CSS"]
 ```
 
-## Style Spectrum
+## 风格谱系
 
-### Classic Basic Styles
+### 经典基础风格
 
-| Style | Key Features | Core Variables |
+| 风格 | 关键特征 | 核心变量 |
 |---|---|---|
-| `Flat Design` | Minimalist, no shadows, `2D`, large color blocks | `--shadow: none`, `--radius: 0` |
-| `Flat Design 2.0` | Flat + soft shadows + soft gradients | `--shadow-soft`, `--gradient-soft` |
-| `Material Design` | Paper layers, readable depth system | `--elevation-*`, `--radius: 8px` |
-| `Skeuomorphism` | Realistic materials, textures, and inner shadows | `--shadow-inset`, `--gradient-rich` |
+| `Flat Design` | 极简、无阴影、`2D`、大色块 | `--shadow: none`, `--radius: 0` |
+| `Flat Design 2.0` | Flat + 轻阴影 + 轻渐变 | `--shadow-soft`, `--gradient-soft` |
+| `Material Design` | 纸片层级、可读的深度系统 | `--elevation-*`, `--radius: 8px` |
+| `Skeuomorphism` | 拟物材质、纹理和内阴影 | `--shadow-inset`, `--gradient-rich` |
 
-### Modern Trending Styles
+### 现代流行风格
 
-| Style | Key Features | Core Variables |
+| 风格 | 关键特征 | 核心变量 |
 |---|---|---|
-| `Glassmorphism` | Translucent + background blur | `--backdrop-blur`, `--bg-opacity` |
-| `Neumorphism` | Same-color scheme raised/pressed | `--shadow-light`, `--shadow-dark` |
-| `Claymorphism` | Rounded blocks + soft 3D feel | `--radius: 24px`, `--shadow-dual` |
-| `Brutalism` | Thick borders, hard shadows, strong contrast | `--border-width: 3px`, `--font: monospace` |
+| `Glassmorphism` | 半透明 + 背景模糊 | `--backdrop-blur`, `--bg-opacity` |
+| `Neumorphism` | 同色系凸起/凹陷 | `--shadow-light`, `--shadow-dark` |
+| `Claymorphism` | 圆润体块 + 软 3D 感 | `--radius: 24px`, `--shadow-dual` |
+| `Brutalism` | 粗边框、硬阴影、强对比 | `--border-width: 3px`, `--font: monospace` |
 
-### Themes and Atmospheres
+### 主题与氛围
 
-| Style | Key Features | Core Variables |
+| 风格 | 关键特征 | 核心变量 |
 |---|---|---|
-| `Dark Mode` | Dark background, low glare, focused content | `--bg: #1e1e2e`, `--contrast` |
-| `Retro / Pixel` | Pixelated feel, neon colors, low-res semantics | `--font-pixel`, `--glow-intensity` |
-| `Futuristic / Sci-Fi` | HUD language, scanning animations, glowing borders | `--glow-color`, `--scan-speed` |
+| `Dark Mode` | 深色背景、低炫光、聚焦内容 | `--bg: #1e1e2e`, `--contrast` |
+| `Retro / Pixel` | 像素感、霓虹色、低分辨率语义 | `--font-pixel`, `--glow-intensity` |
+| `Futuristic / Sci-Fi` | HUD 语言、扫描动画、发光边框 | `--glow-color`, `--scan-speed` |
 
-## Tuning System
+## 微调系统
 
-All styles share a common set of "Universal Parameters"; additional "Special Parameters" are appended when specific styles are selected.
+所有风格共享同一套“通用参数”；选中某些风格后，再追加“专属参数”。
 
-### Universal Parameters
+### 通用参数
 
-| Category | Control | CSS Variable | Range |
+| 分类 | 控件 | CSS Variable | 范围 |
 |---|---|---|---|
-| Color | Color Picker | `--color-primary` | Any |
-| Color | Color Picker | `--color-bg` | Any |
-| Color | Color Picker | `--color-text` | Any |
-| Radius | Slider | `--border-radius` | `0 ~ 32px` |
-| Shadow | Slider | `--shadow-x` / `--shadow-y` | `-20 ~ 20px` |
-| Shadow | Slider | `--shadow-blur` | `0 ~ 40px` |
-| Font | Select | `--font-family` | Preset list |
-| Weight | Slider | `--font-weight` | `100 ~ 900` |
-| Spacing | Slider | `--spacing` | `4 ~ 32px` |
-| Border | Slider | `--border-width` | `0 ~ 6px` |
+| 颜色 | Color Picker | `--color-primary` | Any |
+| 颜色 | Color Picker | `--color-bg` | Any |
+| 颜色 | Color Picker | `--color-text` | Any |
+| 圆角 | Slider | `--border-radius` | `0 ~ 32px` |
+| 阴影 | Slider | `--shadow-x` / `--shadow-y` | `-20 ~ 20px` |
+| 阴影 | Slider | `--shadow-blur` | `0 ~ 40px` |
+| 字体 | Select | `--font-family` | Preset list |
+| 字重 | Slider | `--font-weight` | `100 ~ 900` |
+| 间距 | Slider | `--spacing` | `4 ~ 32px` |
+| 边框 | Slider | `--border-width` | `0 ~ 6px` |
 
-### Special Parameters (By Style)
+### 专属参数（按风格出现）
 
-| Style | Parameter | CSS Variable | Description |
+| 风格 | 参数 | CSS Variable | 说明 |
 |---|---|---|---|
-| `Glassmorphism` | Blur Intensity | `--backdrop-blur` | Core parameter for frosted glass |
-| `Glassmorphism` | Opacity | `--bg-opacity` | Controls panel/card transparency |
-| `Neumorphism` | Raised / Pressed | `--neu-type` | `raised` / `pressed` |
-| `Brutalism` | Offset | `--brutal-offset` | Hard shadow offset |
-| `Material Design` | Elevation | `--elevation` | Corresponds to Material depth |
-| `Futuristic / Sci-Fi` | Scan Speed | `--animation-speed` | HUD animation rhythm |
+| `Glassmorphism` | 模糊强度 | `--backdrop-blur` | 毛玻璃核心参数 |
+| `Glassmorphism` | 透明度 | `--bg-opacity` | 控制面板/卡片透光 |
+| `Neumorphism` | 凸起/凹陷 | `--neu-type` | `raised` / `pressed` |
+| `Brutalism` | 偏移量 | `--brutal-offset` | 硬阴影偏移 |
+| `Material Design` | 层级 | `--elevation` | 对应 Material 深度 |
+| `Futuristic / Sci-Fi` | 扫描速度 | `--animation-speed` | HUD 动画节奏 |
 
-## Technical Architecture
+## 技术架构
 
-### Tech Stack Selection
+### 栈选型
 
-| Layer | Technology | Reason for Choice |
+| 层面 | 技术 | 选择理由 |
 |---|---|---|
-| Build | `Vite` | Fast startup, fast HMR, lightweight config |
-| Logic | `Vanilla JS` | No framework mental burden, easy for teaching and extending |
-| Styling | `Vanilla CSS` + `CSS Variables` | Variable-driven, low cost for style switching |
-| Highlighting | `Prism.js` | Lightweight and controllable |
-| Deployment | `GitHub Pages` + `GitHub Actions` | Low-barrier automated publishing |
+| 构建 | `Vite` | 启动快，HMR 快，配置轻 |
+| 逻辑 | `Vanilla JS` | 无框架心智负担，便于教学与扩展 |
+| 样式 | `Vanilla CSS` + `CSS Variables` | 变量驱动，风格切换成本低 |
+| 代码高亮 | `Prism.js` | 轻量可控 |
+| 部署 | `GitHub Pages` + `GitHub Actions` | 低门槛自动化发布 |
 
-### Core Pattern: Variable-Driven
+### 核心模式：变量驱动
 
 ```css
 :root {
@@ -231,9 +231,9 @@ function onTuningChange(variableName, value) {
 }
 ```
 
-## Data Model & Auto-Discovery
+## 数据模型与自动发现
 
-### Style JSON Example
+### 风格 JSON 示例
 
 ```json
 {
@@ -269,13 +269,13 @@ function onTuningChange(variableName, value) {
     }
   ],
   "keyProperties": [
-    { "property": "backdrop-filter", "explanation": "Core: Blurs background content" },
-    { "property": "background: rgba()", "explanation": "Translucency enhances the glass feel" }
+    { "property": "backdrop-filter", "explanation": "核心：模糊背景内容" },
+    { "property": "background: rgba()", "explanation": "半透明增强玻璃感" }
   ]
 }
 ```
 
-### Auto-Discovery Mechanism
+### 自动发现机制
 
 ```javascript
 const styleModules = import.meta.glob("./*.json", { eager: true });
@@ -287,9 +287,9 @@ export const STYLES = Object.fromEntries(
 );
 ```
 
-## Project Structure (Target State)
+## 项目结构（目标形态）
 
-Note: The following structure represents the target directory after initialization. Currently, the repository is in the documentation phase.
+说明：下列结构是代码初始化后的目标目录。当前仓库暂为文档阶段。
 
 ```text
 web-style-visualisation/
@@ -330,9 +330,9 @@ web-style-visualisation/
         └── validate-pr.yml
 ```
 
-## Deployment Plan
+## 部署方案
 
-### GitHub Actions Workflow
+### GitHub Actions 工作流
 
 ```yaml
 name: Deploy to GitHub Pages
@@ -360,7 +360,7 @@ jobs:
       - uses: actions/deploy-pages@v4
 ```
 
-### Vite Basic Configuration
+### Vite 基础配置
 
 ```javascript
 export default {
@@ -375,31 +375,31 @@ export default {
 
 ### Phase 1 (MVP)
 
-- [ ] Initialize Vite project and GitHub Pages deployment
-- [ ] Complete `CSS Variables` driven architecture
-- [ ] Complete style selector, tuning panel, and code panel
-- [ ] Built-in at least 8 style JSONs
+- [ ] 初始化 Vite 项目与 GitHub Pages 部署
+- [ ] 完成 `CSS Variables` 驱动架构
+- [ ] 完成风格选择器、微调面板、代码面板
+- [ ] 内置至少 8 种风格 JSON
 
-### Phase 2 (Experience Enhancement)
+### Phase 2 (体验增强)
 
-- [ ] Two-column comparison mode
-- [ ] Variable difference highlighting (Diff)
-- [ ] URL parameter sharing
-- [ ] Mobile adaptation
+- [ ] 双栏对比模式
+- [ ] 变量差异高亮（Diff）
+- [ ] URL 参数分享
+- [ ] 移动端适配
 
-### Phase 3 (Advanced Capabilities)
+### Phase 3 (高级能力)
 
-- [ ] Style mix-and-match experiments
-- [ ] Save custom styles (`localStorage`)
-- [ ] Timeline evolution view
-- [ ] More components: Table / Modal / Sidebar / Dashboard
+- [ ] 风格混搭实验
+- [ ] 自定义风格保存（`localStorage`）
+- [ ] 时间线演进视图
+- [ ] 更多组件：Table / Modal / Sidebar / Dashboard
 
-## Contributing
+## 贡献
 
-- Document contributions: Feel free to directly submit improvements to `README` / `CONTRIBUTING`.
-- Style contributions: Please refer to the JSON spec in [CONTRIBUTING.md](./CONTRIBUTING.md).
-- Issue discussions: If you want to add a new style category or variable protocol, it's recommended to open an Issue first to align on the approach.
+- 文档贡献：欢迎直接提交 `README` / `CONTRIBUTING` 改进。
+- 风格贡献：请参考 [CONTRIBUTING.md](./CONTRIBUTING.md) 的 JSON 规范。
+- Issue 讨论：如需新增风格类别或变量协议，建议先开 Issue 对齐方案。
 
 ## License
 
-This project is licensed under the [MIT License](./LICENSE).
+本项目采用 [MIT License](./LICENSE)。

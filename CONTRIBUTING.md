@@ -1,53 +1,55 @@
 # 🤝 Contributing Guide
 
-感谢你为 `Web Style Visualisation` 做贡献。
+[中文文档](./CONTRIBUTING_zh.md)
 
-本项目当前处于 `docs-first` 阶段：仓库已定义完整技术方案与数据协议，代码目录将在后续初始化。你可以先贡献文档，也可以提前提交风格 JSON 方案。
+Thank you for contributing to `Web Style Visualisation`.
 
-## 你可以贡献什么
+This project is currently in the `docs-first` phase: The repository has defined a complete technical plan and data protocol, and the code directory will be initialized later. You can contribute to the documentation first, or submit style JSON schemas in advance.
 
-- 文档改进：术语统一、结构优化、示例补充、错别字修复。
-- 新风格提案：新增或改进风格 JSON（含变量、专属微调、关键属性说明）。
-- 工程实现：在代码目录初始化后提交组件、面板、校验脚本、`CI` 配置。
+## What You Can Contribute
 
-## 快速流程
+- **Documentation Improvements**: Terminology unification, structure optimization, example supplementation, typo fixes.
+- **New Style Proposals**: Propose or improve style JSONs (including variables, specific tuning parameters, and descriptions of key properties).
+- **Engineering Implementation**: After the code directory is initialized, submit components, panels, validation scripts, or `CI` configurations.
+
+## Quick Process
 
 ```bash
 # 1) Fork + Clone
 git clone <your-fork-url>
 cd web-style-visualisation
 
-# 2) 创建分支
+# 2) Create a branch
 git checkout -b feat/<short-topic>
 
-# 3) 修改文档或代码
+# 3) Modify documentation or code
 # edit files
 
-# 4) 提交
+# 4) Commit
 git add .
 git commit -m "docs: improve style contribution spec"
 
-# 5) 推送并发起 PR
+# 5) Push and open a PR
 git push origin feat/<short-topic>
 ```
 
-如果你只提交新风格，推荐分支名：
+If you are just submitting a new style, recommended branch name format:
 
 ```bash
 git checkout -b style/<style-id>
 ```
 
-## 风格 JSON 贡献规范
+## Style JSON Contribution Spec
 
-目标目录（代码初始化后）：`src/styles/`
+Target directory (after code initialization): `src/styles/`
 
-### 1) 从模板创建
+### 1) Create from Template
 
 ```bash
 cp src/styles/_template.json src/styles/<style-id>.json
 ```
 
-### 2) 必填字段
+### 2) Required Fields
 
 ```json
 {
@@ -78,28 +80,28 @@ cp src/styles/_template.json src/styles/<style-id>.json
   "keyProperties": [
     {
       "property": "box-shadow",
-      "explanation": "使用硬阴影构建强烈层次"
+      "explanation": "Use hard shadows to build strong visual hierarchy"
     }
   ]
 }
 ```
 
-### 3) `category` 可选值
+### 3) `category` Allowed Values
 
-| 值 | 说明 |
+| Value | Description |
 |---|---|
-| `classic` | 经典基础风格 |
-| `modern` | 现代流行风格 |
-| `theme` | 主题与氛围风格 |
+| `classic` | Classic basic styles |
+| `modern` | Modern trending styles |
+| `theme` | Themes and atmospheres |
 
-### 4) `specialTuning` 规则
+### 4) `specialTuning` Rules
 
-支持 3 种控件类型：`range`、`color`、`select`。
+Supports 3 types of controls: `range`, `color`, `select`.
 
 ```json
 {
   "variable": "--backdrop-blur",
-  "label": "模糊强度",
+  "label": "Blur Intensity",
   "type": "range",
   "min": 0,
   "max": 30,
@@ -108,20 +110,20 @@ cp src/styles/_template.json src/styles/<style-id>.json
 }
 ```
 
-`select` 示例：
+`select` Example:
 
 ```json
 {
   "variable": "--neu-type",
-  "label": "凸起/凹陷",
+  "label": "Raised/Pressed",
   "type": "select",
   "options": ["raised", "pressed"]
 }
 ```
 
-## 验证与自测
+## Validation & Self-Testing
 
-代码初始化后，请在本地至少执行：
+After the code is initialized, please be sure to execute at least the following locally:
 
 ```bash
 npm install
@@ -129,44 +131,44 @@ npm run validate
 npm run dev
 ```
 
-检查点：
+Checkpoints:
 
-- 风格可被自动发现（无需手动注册）。
-- 微调控件能正确更新对应 `CSS Variables`。
-- 代码面板可正确输出当前变量值。
-- 页面无明显视觉回归（`Button`、`Card`、`Form`、`Navbar` 均可读可用）。
+- Your style can be automatically discovered (no manual registration required).
+- Fine-tuning controls correctly update the corresponding `CSS Variables`.
+- The code panel correctly outputs the current variable values.
+- There are no obvious visual regressions on the page (`Button`, `Card`, `Form`, `Navbar` are all legible and usable).
 
-## PR 清单
+## PR Checklist
 
-提交 PR 前请确认：
+Before submitting a PR, please make sure:
 
-- [ ] 文件路径与命名符合规范（如 `src/styles/<style-id>.json`）。
-- [ ] JSON 文件名与 `id` 字段一致。
-- [ ] 关键变量已完整填写。
-- [ ] 至少包含 1 条 `keyProperties`。
-- [ ] 文案遵循中英文排版规范（中文与英文/数字之间加空格）。
-- [ ] 若改动可执行逻辑，已附最小验证说明（命令 + 结果）。
+- [ ] File paths and naming follow the specification (e.g., `src/styles/<style-id>.json`).
+- [ ] The JSON filename matches the `id` field.
+- [ ] Key variables have been completely filled out.
+- [ ] It contains at least 1 `keyProperties`.
+- [ ] Copywriting follows Chinese and English typography guidelines (add spaces between Chinese and English/numbers in Chinese descriptions).
+- [ ] If changing executable logic, please include minimal verification instructions (command + result).
 
-## Commit Message 建议
+## Commit Message Guidelines
 
-| 类型 | 何时使用 | 示例 |
+| Type | When to Use | Example |
 |---|---|---|
-| `feat` | 新功能/新风格 | `feat: add neo-brutalism style` |
-| `fix` | 修复问题 | `fix: correct shadow variable mapping` |
-| `docs` | 文档更新 | `docs: clarify style json schema` |
-| `chore` | 工具或配置维护 | `chore: update lint config` |
+| `feat` | New feature / new style | `feat: add neo-brutalism style` |
+| `fix` | Bug fixes | `fix: correct shadow variable mapping` |
+| `docs` | Documentation updates | `docs: clarify style json schema` |
+| `chore` | Tool or config maintenance | `chore: update lint config` |
 
-## 文档与术语规范
+## Documentation and Terminology Norms
 
-请保持以下写法一致：
+Please maintain consistency with the following terms:
 
-- `CSS Variables`（不要写成 `CSS variables`）
-- `Vanilla JS`（不要写成 `vanilla js`）
-- `GitHub Pages`（不要写成 `Github pages`）
-- `Material Design`、`Glassmorphism`、`Neumorphism`（首字母大写）
+- `CSS Variables` (Do not write `CSS variables`)
+- `Vanilla JS` (Do not write `vanilla js`)
+- `GitHub Pages` (Do not write `Github pages`)
+- Capitalize the first letter for `Material Design`, `Glassmorphism`, `Neumorphism`
 
-## 讨论与协作
+## Discussions and Collaboration
 
-- 新增风格前，建议先开 Issue 说明设计动机与参考链接。
-- 对变量命名、数据协议有改动时，请先在 PR 描述中给出兼容性说明。
-- 欢迎在 PR 中附对比截图或录屏，帮助审阅者快速理解改动。
+- Before proposing new styles, it is highly recommended to open an Issue explaining the design motivation and reference links.
+- When there are changes to variable naming or data protocols, please provide compatibility notes in the PR description.
+- You are welcome to include comparison screenshots or screen recordings in the PR to help reviewers quickly understand your changes.
