@@ -163,6 +163,12 @@ body.tuning-open #app {
   gap: var(--spacing);
   padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-sm);
   overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.style-selector-grid::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 .style-card {
