@@ -59,7 +59,7 @@ function buildPanel() {
   const header = document.createElement("div");
   header.className = "tuning-panel-header";
   header.innerHTML = `
-    <span class="tuning-panel-title">⚙️ Fine Tuning</span>
+    <span class="tuning-panel-title">${t("panel.tuning")}</span>
     <button class="tuning-close" id="tuning-close-btn">×</button>
   `;
   panelContainer.appendChild(header);
