@@ -144,12 +144,13 @@ body.tuning-open #app {
 
 /* --- Style Selector --- */
 .style-selector-section {
-  padding: var(--spacing-lg) var(--spacing-xl);
+  padding: var(--spacing-lg) 0;
   background: var(--color-bg);
   border-bottom: var(--border-width) solid var(--border-color);
 }
 
 .style-selector-title {
+  padding: 0 var(--spacing-xl);
   font-size: var(--font-size-sm);
   font-weight: 600;
   text-transform: uppercase;
@@ -161,7 +162,7 @@ body.tuning-open #app {
 .style-selector-grid {
   display: flex;
   gap: var(--spacing);
-  padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-xs) 0 var(--spacing-sm) 0;
   overflow-x: auto;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
@@ -183,6 +184,14 @@ body.tuning-open #app {
   user-select: none;
   position: relative;
   overflow: hidden;
+}
+
+.style-card:first-child {
+  margin-left: var(--spacing-xl);
+}
+
+.style-card:last-child {
+  margin-right: var(--spacing-xl);
 }
 
 .style-card:hover {
@@ -1000,6 +1009,18 @@ body.tuning-open .tuning-toggle {
 
   .style-selector-grid {
     gap: var(--spacing-sm);
+  }
+
+  .style-selector-title {
+    padding: 0 var(--spacing);
+  }
+
+  .style-card:first-child {
+    margin-left: var(--spacing);
+  }
+
+  .style-card:last-child {
+    margin-right: var(--spacing);
   }
 
   .style-card {
