@@ -680,8 +680,8 @@ body.tuning-open #app {
   position: fixed;
   top: 0;
   right: 0;
+  bottom: 0;
   width: 320px;
-  height: 100vh;
   background: var(--color-bg);
   border-left: var(--border-width) solid var(--border-color);
   box-shadow: -4px 0 24px rgba(0, 0, 0, 0.08);
@@ -690,6 +690,7 @@ body.tuning-open #app {
   transform: translateX(100%);
   transition: transform var(--transition-speed) ease;
   padding: var(--spacing-lg);
+  padding-bottom: calc(var(--spacing-lg) + env(safe-area-inset-bottom, 0px));
 }
 
 .tuning-panel.open {
@@ -699,7 +700,7 @@ body.tuning-open #app {
 .tuning-toggle {
   position: fixed;
   right: var(--spacing);
-  bottom: 80px;
+  bottom: calc(80px + env(safe-area-inset-bottom, 0px));
   width: 48px;
   height: 48px;
   border-radius: 50%;
