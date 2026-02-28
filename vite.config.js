@@ -1,5 +1,5 @@
 export default {
-  base: "/web-style-visualisation/",
+  base: "/Web_Style_Visualization/",
   build: {
     outDir: "dist"
   }
