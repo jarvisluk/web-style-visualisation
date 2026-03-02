@@ -1010,16 +1010,29 @@ body.tuning-open .tuning-toggle {
   }
 
   .navbar-links {
-    display: none;
     width: 100%;
     flex-direction: column;
     padding-top: var(--spacing);
     padding-bottom: var(--spacing-sm);
     gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height var(--transition-speed) ease,
+                opacity var(--transition-speed) ease,
+                visibility var(--transition-speed) ease,
+                padding var(--transition-speed) ease;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .navbar-links.open {
-    display: flex;
+    max-height: 300px; /* Assume it's enough for 4 items */
+    opacity: 1;
+    visibility: visible;
+    padding-top: var(--spacing);
+    padding-bottom: var(--spacing-sm);
   }
 
   .navbar-links li {
