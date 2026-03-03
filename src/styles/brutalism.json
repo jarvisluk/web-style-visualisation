@@ -24,7 +24,7 @@
     "--shadow-blur": "0px",
     "--shadow-spread": "0px",
     "--shadow-color": "#000000",
-    "--font-family": "'Courier Prime', monospace",
+    "--font-family": "'Courier Prime', 'Noto Serif SC', monospace",
     "--font-weight": "400",
     "--font-weight-bold": "700",
     "--backdrop-blur": "0px",

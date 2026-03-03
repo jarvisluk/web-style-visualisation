@@ -24,7 +24,7 @@
     "--shadow-blur": "16px",
     "--shadow-spread": "0px",
     "--shadow-color": "rgba(255, 0, 128, 0.5)",
-    "--font-family": "'Press Start 2P', 'Courier Prime', monospace",
+    "--font-family": "'Press Start 2P', 'ZCOOL QingKe HuangYou', 'Courier Prime', monospace",
     "--font-weight": "400",
     "--font-weight-bold": "400",
     "--backdrop-blur": "0px",

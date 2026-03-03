@@ -10,6 +10,7 @@
     "validate": "node scripts/validate-styles.js"
   },
   "devDependencies": {
+    "sharp": "^0.34.5",
     "vite": "^5.4.0"
   },
   "dependencies": {
